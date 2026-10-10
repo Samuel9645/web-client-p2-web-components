@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Life Cycle</title>
+    <script type="module" src="product-details.js"></script>
+    <script type="module" src="edit-product-details.js"></script>
+</head>
+<body>
+
+<form id="edit-product-details">
+    <label>
+        <input type="text" name="title" placeholder="title" required>
+    </label>
+    <label>
+        <input type="text" name="description" placeholder="description"
+               required>
+    </label>
+    <button type="submit">Update</button>
+</form>
+
+<button id="delete-product">Delete product</button>
+
+<product-details id="product-details" title="Initial Title"
+                 description="Initial Description"></product-details>
+
+</body>
+</html>
