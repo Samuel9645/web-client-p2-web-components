@@ -8,3 +8,5 @@ Crear una página con un Web Component simple que permita verificar el ciclo de 
 
 ## Especies canarias
 Sobre el ejemplo de WebComponents de especies autóctonas Canarias, explicado en clase, agregar un componente que actualice las valoraciones obtenidas por la especie. Cada valoración se obtiene cuando el usuario hace click en el botón like del panel donde se muestra la información extendida.
+
+[Especies canarias](canary-species)
