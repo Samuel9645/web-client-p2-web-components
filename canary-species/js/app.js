@@ -1,6 +1,6 @@
 import {SPECIES} from './species-data.js';
-import {speciesDetailsElementName} from "./species-detail";
-import {speciesCardElementName} from "./species-card";
+import {speciesDetailsElementName} from "./species-detail.js";
+import {speciesCardElementName} from "./species-card.js";
 
 const detailPanel = document.createElement(speciesDetailsElementName);
 detailPanel.classList.add('is-hidden');
