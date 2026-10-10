@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Web Components — Especies de Canarias</title>
+    <link rel="stylesheet" href="css/global.css">
+    <script type="module" src="js/species-data.js"></script>
+    <script type="module" src="js/species-card.js"></script>
+    <script type="module" src="js/species-detail.js"></script>
+    <script type="module" src="js/app.js"></script>
+</head>
+<body>
+<h1>🌿 Catálogo de Especies Endémicas de Canarias</h1>
+<p class="subtitle">Ejercicio de Web Components — haz clic en una especie para
+    ver el detalle</p>
+
+<template id="species-card-template">
+    <link rel="stylesheet" href="css/card.css">
+    <div class="card">
+        <div class="card-icon">
+            <slot name="icon">🌱</slot>
+        </div>
+        <div class="card-body">
+            <div class="card-name">
+                <slot name="name">Especie</slot>
+            </div>
+            <div class="card-scientific">
+                <slot name="scientific"></slot>
+            </div>
+            <span class="card-island"><slot name="island">Canarias</slot></span>
+            <span class="card-threat threat-LC" id="threat-badge">Segura</span>
+        </div>
+    </div>
+</template>
+
+<template id="species-detail-template">
+    <link rel="stylesheet" href="css/detail.css">
+    <div class="detail">
+        <button class="close-button" id="close-button" type="button">✕ cerrar
+        </button>
+        <div class="detail-header">
+            <span class="detail-icon" id="detail-icon"></span>
+            <div>
+                <div class="detail-name" id="detail-name"></div>
+                <div class="detail-scientific" id="detail-scientific"></div>
+            </div>
+        </div>
+        <p class="detail-description" id="detail-description"></p>
+        <div class="detail-meta" id="detail-meta"></div>
+    </div>
+</template>
+
+<div id="detail-container"></div>
+<div class="catalog" id="catalog"></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  padding: 2rem;
+  background: #f0f4f8;
+  color: #1a2a3a;
+  font-family: system-ui, sans-serif;
+}
+
+h1 {
+  margin-bottom: 0.25rem;
+  color: #1a4a2e;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  margin-bottom: 2rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
