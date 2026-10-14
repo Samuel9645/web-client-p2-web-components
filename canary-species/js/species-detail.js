@@ -8,14 +8,11 @@ class SpeciesDetail extends HTMLElement {
         this.handleSpeciesOpened = event => this.showSpecies(event.detail.species);
         this.currentSpecies = null;
         this.handleClose = () => this.close();
-        this.handleLike = () => this.likeCurrentSpecies();
     }
 
     connectedCallback() {
         this.shadowRoot.getElementById('close-button')
             .addEventListener('click', this.handleClose);
-        this.shadowRoot.getElementById('like-button')
-            .addEventListener('click', this.handleLike);
         document.addEventListener('species-opened', this.handleSpeciesOpened);
     }
 
@@ -23,8 +20,6 @@ class SpeciesDetail extends HTMLElement {
         document.removeEventListener('species-opened', this.handleSpeciesOpened);
         this.shadowRoot.getElementById('close-button')
             .removeEventListener('click', this.handleClose);
-        this.shadowRoot.getElementById('like-button')
-            .removeEventListener('click', this.handleLike);
     }
 
     showSpecies(species) {
@@ -46,30 +41,11 @@ class SpeciesDetail extends HTMLElement {
             chip.textContent = text;
             metadata.appendChild(chip);
         });
-        this.updateRating();
-
         this.classList.remove('is-hidden');
-    }
-
-    updateRating() {
-        this.shadowRoot.getElementById('detail-rating-value').textContent =
-            this.currentSpecies.rating.toString();
-    }
-
-    likeCurrentSpecies() {
-        if (this.currentSpecies === null || this.currentSpecies === undefined) {
-            return;
-        }
-        this.currentSpecies.rating += 1;
-        this.updateRating();
     }
 
     close() {
         this.classList.add('is-hidden');
-        // this.dispatchEvent(new CustomEvent('species-closed', {
-        //     bubbles: true,
-        //     composed: true,
-        // }));
     }
 }
 
