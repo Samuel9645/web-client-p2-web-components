@@ -1,0 +1,47 @@
+:host {
+  display: block;
+}
+
+.detail-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid #e2e8f0;
+  color: #555;
+  font-size: 0.85rem;
+}
+
+.detail-rating-value {
+  min-width: 1.5rem;
+  color: #2d6a4f;
+  font-weight: 700;
+  text-align: center;
+}
+
+.like-button {
+  margin-left: auto;
+  padding: 0.35rem 0.75rem;
+  background: white;
+  border: 1px solid #b7d8c1;
+  border-radius: 6px;
+  color: #2d6a4f;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.18s, border-color 0.18s, transform 0.18s;
+}
+
+.like-button:hover {
+  background: #e8f5e9;
+  border-color: #2d6a4f;
+}
+
+.like-button:active {
+  transform: scale(0.96);
+}
+
+.like-button:focus-visible {
+  outline: 2px solid #2d6a4f;
+  outline-offset: 2px;
+}
