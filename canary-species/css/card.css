@@ -55,6 +55,17 @@
   font-size: 0.72rem;
 }
 
+.card-rating {
+  margin-top: 0.7rem;
+  color: #555;
+  font-size: 0.8rem;
+}
+
+.card-rating span {
+  color: #2d6a4f;
+  font-weight: 700;
+}
+
 .threat-EN {
   background: #fce4ec;
   color: #b71c1c;

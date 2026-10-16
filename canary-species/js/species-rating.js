@@ -6,7 +6,7 @@ class SpeciesRating extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true));
         this.ratings = new Map();
         this.currentSpecies = null;
-        this.handleSpeciesOpened = event => this.showSpecies(event.detail.species);
+        this.handleSpeciesOpened = event => this.setActiveSpecies(event.detail.species);
         this.handleLike = () => this.likeCurrentSpecies();
     }
 
@@ -22,22 +22,19 @@ class SpeciesRating extends HTMLElement {
             .removeEventListener('click', this.handleLike);
     }
 
-    showSpecies(species) {
+    setActiveSpecies(species) {
         this.currentSpecies = species;
         if (!this.ratings.has(species.id)) {
             this.ratings.set(species.id, 0);
         }
-        this.updateRating();
+        this.updateRatingText();
     }
 
     get currentSpeciesRating() {
-        if (this.currentSpecies === null) {
-            return 0;
-        }
-        return this.ratings.get(this.currentSpecies.id) ?? 0;
+        return this.ratings.get(this.currentSpecies?.id) ?? 0;
     }
 
-    updateRating() {
+    updateRatingText() {
         this.shadowRoot.getElementById('detail-rating-value').textContent =
             this.currentSpeciesRating.toString();
     }
@@ -47,7 +44,15 @@ class SpeciesRating extends HTMLElement {
             return;
         }
         this.ratings.set(this.currentSpecies.id, this.currentSpeciesRating + 1);
-        this.updateRating();
+        this.updateRatingText();
+        this.dispatchEvent(new CustomEvent('rating-changed', {
+            detail: {
+                speciesId: this.currentSpecies.id,
+                rating: this.currentSpeciesRating,
+            },
+            bubbles: true,
+            composed: true,
+        }));
     }
 }
 
